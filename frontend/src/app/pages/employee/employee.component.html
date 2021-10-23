@@ -1,4 +1,9 @@
-<form class="p-3" ngNativeValidate (submit)="submit($event)">
+<form
+  class="p-3"
+  [formGroup]="sendfile"
+  ngNativeValidate
+  (submit)="submit($event)"
+>
   <div class="container">
     <div class="row">
       <h3>Personal Information</h3>
@@ -7,6 +12,7 @@
         <div class="form-group">
           <label for="inputAddress">Firstname</label>
           <input
+            formControlName="fname"
             type="text"
             class="form-control mt-2"
             id="inputAddress"
@@ -18,6 +24,7 @@
         <div class="form-group col-md-4">
           <label for="inputAddress">Middlename</label>
           <input
+            formControlName="mname"
             type="text"
             class="form-control mt-2"
             id="inputAddress"
@@ -31,6 +38,7 @@
         <div class="form-group">
           <label for="inputAddress">Lastname</label>
           <input
+            formControlName="lname"
             type="text"
             class="form-control mt-2"
             id="inputAddress"
@@ -48,31 +56,40 @@
         <div class="form-group">
           <label for="inputAddress">Rank</label><br />
           <select
+            formControlName="rank"
             class="custom-select mt-2 w-100"
             style="color: gray; border-color: gray"
             id="inputGroupSelect01"
           >
             <option selected disabled>Choose...</option>
-            <option value="1">Captain/Master</option>
-            <option value="2">Chief Mate (Chief Officer)</option>
-            <option value="3">Second Mate (Second Officer)</option>
-            <option value="4">Third Mate (Third Officer)</option>
-            <option value="5">Deck Cadet</option>
-            <option value="6">Chief Engineer</option>
-            <option value="7">Second Engineer</option>
-            <option value="8">Third Engineer</option>
-            <option value="9">Fourth Engineer</option>
-            <option value="10">Engine Cadet</option>
-            <option value="11">Electrician</option>
-            <option value="12">Boatswain (Bosun)</option>
-            <option value="13">Pumpman</option>
-            <option value="14">Able-Bodied Seaman (AB)</option>
-            <option value="15">Ordinary Seaman (OS)</option>
-            <option value="16">Fitter</option>
-            <option value="17">Oiler</option>
-            <option value="18">Wiper (Motorman)</option>
-            <option value="19">Chief Cook</option>
-            <option value="20">Steward</option>
+            <option value="Captain/Master">Captain/Master</option>
+            <option value="Chief Mate (Chief Officer)">
+              Chief Mate (Chief Officer)
+            </option>
+            <option value="Second Mate (Second Officer)">
+              Second Mate (Second Officer)
+            </option>
+            <option value="Third Mate (Third Officer)">
+              Third Mate (Third Officer)
+            </option>
+            <option value="Deck Cadet">Deck Cadet</option>
+            <option value="Chief Engineer">Chief Engineer</option>
+            <option value="Second Engineer">Second Engineer</option>
+            <option value="Third Engineer">Third Engineer</option>
+            <option value="Fourth Engineer">Fourth Engineer</option>
+            <option value="Engine Cadet">Engine Cadet</option>
+            <option value="Electrician">Electrician</option>
+            <option value="Boatswain (Bosun)">Boatswain (Bosun)</option>
+            <option value="Pumpman">Pumpman</option>
+            <option value="Able-Bodied Seaman (AB)">
+              Able-Bodied Seaman (AB)
+            </option>
+            <option value="Ordinary Seaman (OS)">Ordinary Seaman (OS)</option>
+            <option value="Fitter">Fitter</option>
+            <option value="Oiler">Oiler</option>
+            <option value="Wiper (Motorman)">Wiper (Motorman)</option>
+            <option value="Chief Cook">Chief Cook</option>
+            <option value="Steward">Steward</option>
           </select>
         </div>
       </div>

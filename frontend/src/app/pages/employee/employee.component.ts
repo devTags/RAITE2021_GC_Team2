@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-employee',
@@ -9,12 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class EmployeeComponent implements OnInit {
   sendfile: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _data: DataService) {
     this.sendfile = this.fb.group({
-      email: ['', Validators.required],
-      reportfile: ['', Validators.required],
-
+      fname: ['', Validators.required],
+      mname: ['', Validators.required],
+      lname: ['', Validators.required],
       newfile: ['', Validators.required],
+      rank: ['', Validators.required],
     });
   }
 
@@ -22,6 +24,21 @@ export class EmployeeComponent implements OnInit {
 
   submit(e: any) {
     e.preventDefault();
+    console.log(this.sendfile.value);
+
+    // var formData = new FormData()
+    // formData.append('attachment', this.sendfile.get('newfile').value)
+    // console.log(this.sendfile.get('newfile').value);
+
+    this._data
+      .processData('insert_crew', this.sendfile.value)
+      .subscribe((res: any) => {
+        try {
+          console.log(res);
+        } catch (err) {
+          console.log('Invalid inputs');
+        }
+      });
   }
 
   async submitPdf(event: any) {
